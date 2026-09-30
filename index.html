@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Plant Stewardship and Health Tracking System</title>
+    <meta
+      name="description"
+      content="Student Plant Stewardship and Health Tracking System prototype for Nitte, Karkala M.Tech CSE project demonstration."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="navbar container">
+        <div class="brand-wrap">
+          <div class="brand-mark">P</div>
+          <div class="brand-text">
+            <span class="brand-top">Nitte | M.Tech CSE</span>
+            <span class="brand-bottom">Plant Stewardship</span>
+          </div>
+        </div>
+
+        <button class="nav-toggle" aria-label="Open navigation menu">☰</button>
+
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#plants">Plants</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#about-project">About Project</a>
+          <button class="nav-signin" data-view="login">Sign In</button>
+        </div>
+
+        <button class="nav-signup" data-view="login">Sign Up</button>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="view active">
+        <div class="hero container">
+          <div class="hero-copy">
+            <span class="eyebrow">Student Plant Stewardship and Health Tracking System</span>
+            <h1>Grow. Care. Record. Continue.</h1>
+            <p>
+              A student-driven system for continuous plant care, health tracking and
+              responsible handover.
+            </p>
+
+            <div class="hero-actions">
+              <button class="primary-btn" data-view="plants">Explore Plants</button>
+              <button class="secondary-btn" data-view="login">Student Login</button>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="plant-card-visual">
+              <div class="leaf leaf-one"></div>
+              <div class="leaf leaf-two"></div>
+              <div class="leaf leaf-three"></div>
+              <div class="pot"></div>
+            </div>
+          </div>
+        </div>
+
+        <section class="about container" id="about-project">
+          <div class="section-heading">
+            <span class="eyebrow accent">About the Project</span>
+            <h2>Responsible stewardship for every plant</h2>
+          </div>
+          <p>
+            The system helps students take responsibility for plants, regularly record
+            their condition, monitor care activities and transfer responsibility to
+            another student while preserving the plant's history.
+          </p>
+        </section>
+
+        <section class="features container">
+          <div class="section-heading center">
+            <span class="eyebrow accent">Project Features</span>
+            <h2>Student stewardship in action</h2>
+          </div>
+
+          <div class="feature-grid">
+            <article class="feature-card">
+              <div class="icon">🌱</div>
+              <h3>Student Stewardship</h3>
+              <p>A student takes responsibility for a plant.</p>
+            </article>
+            <article class="feature-card">
+              <div class="icon">📋</div>
+              <h3>Health Tracking</h3>
+              <p>The student records the plant's condition regularly.</p>
+            </article>
+            <article class="feature-card">
+              <div class="icon">📚</div>
+              <h3>Care History</h3>
+              <p>Care and check activity can be viewed over time.</p>
+            </article>
+            <article class="feature-card">
+              <div class="icon">⚠️</div>
+              <h3>Stress Alert</h3>
+              <p>Repeated stress conditions can generate an alert.</p>
+            </article>
+            <article class="feature-card">
+              <div class="icon">🔄</div>
+              <h3>Handover</h3>
+              <p>Responsibility can be transferred to another student.</p>
+            </article>
+            <article class="feature-card">
+              <div class="icon">📲</div>
+              <h3>QR Access</h3>
+              <p>Users can scan a plant's QR code to directly view its information.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="process container" id="how-it-works">
+          <div class="section-heading center">
+            <span class="eyebrow accent">How It Works</span>
+            <h2>From care to continuity</h2>
+          </div>
+
+          <div class="timeline">
+            <div class="step-card">
+              <span class="step-number">01</span>
+              <h3>Select a Plant</h3>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="step-card">
+              <span class="step-number">02</span>
+              <h3>Student Takes Responsibility</h3>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="step-card">
+              <span class="step-number">03</span>
+              <h3>Perform Regular Health Check</h3>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="step-card">
+              <span class="step-number">04</span>
+              <h3>Record Plant Condition</h3>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="step-card">
+              <span class="step-number">05</span>
+              <h3>Monitor Care History</h3>
+            </div>
+            <div class="arrow">↓</div>
+            <div class="step-card">
+              <span class="step-number">06</span>
+              <h3>Hand Over to Another Student</h3>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section id="plants" class="view hidden">
+        <div class="container section-block">
+          <div class="section-heading">
+            <span class="eyebrow accent">Our Plants</span>
+            <h2>Current plant collection</h2>
+          </div>
+          <div id="plantGrid" class="plant-grid"></div>
+        </div>
+      </section>
+
+      <section id="plant-details" class="view hidden">
+        <div class="container section-block">
+          <div id="plantDetailsContent"></div>
+        </div>
+      </section>
+
+      <section id="login" class="view hidden">
+        <div class="container section-block small-container">
+          <div class="section-heading center">
+            <span class="eyebrow accent">Demo Login</span>
+            <h2>Choose your role</h2>
+          </div>
+          <div class="login-grid">
+            <button class="role-card" data-role="general">
+              <span class="role-icon">👤</span>
+              <strong>Continue as General User</strong>
+              <small>View information only</small>
+            </button>
+            <button class="role-card" data-role="student">
+              <span class="role-icon">🧑‍🌾</span>
+              <strong>Continue as Student Steward</strong>
+              <small>Track care and handover</small>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="general-dashboard" class="view hidden">
+        <div class="container section-block">
+          <div class="section-heading">
+            <span class="eyebrow accent">General User Dashboard</span>
+            <h2>View-only plant overview</h2>
+          </div>
+          <div id="generalDashboardContent"></div>
+        </div>
+      </section>
+
+      <section id="student-dashboard" class="view hidden">
+        <div class="container section-block">
+          <div class="section-heading">
+            <span class="eyebrow accent">Student Steward Dashboard</span>
+            <h2>Current plant care overview</h2>
+          </div>
+          <div id="studentDashboardContent"></div>
+        </div>
+      </section>
+
+      <section id="daily-health" class="view hidden">
+        <div class="container section-block small-container">
+          <div class="section-heading">
+            <span class="eyebrow accent">Daily Health Check</span>
+            <h2>Record plant condition</h2>
+          </div>
+
+          <form id="healthCheckForm" class="panel-form">
+            <div class="field-row">
+              <label for="plantSelect">Plant</label>
+              <select id="plantSelect" name="plantSelect">
+                <option value="lipstick-palm">Lipstick Palm</option>
+                <option value="ti-plant">Ti Plant</option>
+              </select>
+            </div>
+
+            <div class="field-row">
+              <label for="plantPhoto">Photo</label>
+              <input id="plantPhoto" name="plantPhoto" type="file" accept="image/*" />
+            </div>
+
+            <div class="field-row">
+              <label for="conditionSelect">Condition</label>
+              <select id="conditionSelect" name="conditionSelect">
+                <option value="Healthy">Healthy</option>
+                <option value="Mild Stress">Mild Stress</option>
+                <option value="Unhealthy">Unhealthy</option>
+              </select>
+            </div>
+
+            <button type="submit" class="primary-btn full-width">Submit Health Check</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="health-history" class="view hidden">
+        <div class="container section-block small-container">
+          <div class="section-heading">
+            <span class="eyebrow accent">Health History</span>
+            <h2>Care timeline</h2>
+          </div>
+          <div id="healthHistoryContent"></div>
+        </div>
+      </section>
+
+      <section id="care-calendar" class="view hidden">
+        <div class="container section-block small-container">
+          <div class="section-heading">
+            <span class="eyebrow accent">Care Calendar</span>
+            <h2>Weekly care activity</h2>
+          </div>
+          <div id="careCalendarContent"></div>
+        </div>
+      </section>
+
+      <section id="handover" class="view hidden">
+        <div class="container section-block small-container">
+          <div class="section-heading">
+            <span class="eyebrow accent">Handover</span>
+            <h2>Transfer responsibility</h2>
+          </div>
+          <div id="handoverContent"></div>
+        </div>
+      </section>
+
+      <section id="reviews" class="view hidden">
+        <div class="container section-block small-container">
+          <div class="section-heading">
+            <span class="eyebrow accent">Public Reviews</span>
+            <h2>Community feedback</h2>
+          </div>
+          <div id="reviewsContent"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <strong>Nitte | M.Tech CSE</strong>
+          <p>Student Plant Stewardship and Health Tracking System</p>
+        </div>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#plants">Plants</a>
+          <a href="#about-project">About Project</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
