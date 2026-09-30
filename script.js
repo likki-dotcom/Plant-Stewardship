@@ -551,31 +551,75 @@ function showView(viewName) {
   }
 }
 
+function routeToView(targetName) {
+  const normalized = targetName || 'home';
+
+  if (normalized === 'login') {
+    showView('login');
+    return;
+  }
+
+  if (normalized === 'plants') {
+    showView('plants');
+    return;
+  }
+
+  if (normalized === 'home' || normalized === 'how-it-works' || normalized === 'about-project') {
+    showView('home');
+    const section = document.getElementById(normalized);
+    if (section) {
+      setTimeout(() => {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 0);
+    }
+    return;
+  }
+
+  if (normalized === 'plant-details') {
+    showView('plant-details');
+    return;
+  }
+
+  if (normalized === 'general-dashboard' || normalized === 'student-dashboard' || normalized === 'daily-health' || normalized === 'health-history' || normalized === 'care-calendar' || normalized === 'handover' || normalized === 'reviews') {
+    showView(normalized);
+  }
+}
+
 function initializeNavigation() {
   document.addEventListener('click', (event) => {
     const trigger = event.target.closest('[data-view]');
     if (!trigger) return;
 
     const targetView = trigger.dataset.view;
-    if (targetView === 'login') {
-      showView('login');
-    } else if (targetView === 'plants') {
-      showView('plants');
-    } else if (targetView === 'plant-details') {
-      state.selectedPlantId = trigger.dataset.plantId || state.selectedPlantId;
-      showView('plant-details');
-    } else if (targetView === 'general-dashboard' || targetView === 'student-dashboard') {
-      showView(targetView);
-    } else if (targetView === 'daily-health' || targetView === 'health-history' || targetView === 'care-calendar' || targetView === 'handover' || targetView === 'reviews') {
-      showView(targetView);
-    } else {
-      showView(targetView);
+    const anchorHref = trigger.getAttribute('href');
+
+    if (anchorHref && anchorHref.startsWith('#')) {
+      event.preventDefault();
+      routeToView(anchorHref.slice(1));
+      return;
     }
+
+    routeToView(targetView);
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      const hash = link.getAttribute('href');
+      if (!hash || !hash.startsWith('#')) return;
+      event.preventDefault();
+      routeToView(hash.slice(1));
+    });
   });
 
   document.querySelector('.nav-toggle')?.addEventListener('click', () => {
     document.querySelector('.nav-links')?.classList.toggle('open');
   });
+
+  window.addEventListener('hashchange', () => {
+    routeToView(location.hash.replace('#', '') || 'home');
+  });
+
+  routeToView(location.hash.replace('#', '') || 'home');
 }
 
 function handleRoleSelection() {
